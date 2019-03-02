@@ -1,6 +1,8 @@
 import React from 'react';
-import {BrowserRouter, Route } from 'react-router-dom';
+import {BrowserRouter, Route} from 'react-router-dom';
 import {Header} from './components/header';
+import {UserNew} from './pages/user_new';
+import {SessionsNew} from './pages/sessions_new';
 
 const App = () => (
   <div className="container bg-light">
@@ -8,7 +10,7 @@ const App = () => (
       <div>
         <Header />
         <Route exact path="/" component={Home} />
-        <Route path="/user/new" component={UserNew} />
+        <Route path="/users/new" component={UserNew} />
         <Route path="/sessions/new" component={SessionsNew} />
       </div>
     </BrowserRouter>
@@ -19,18 +21,6 @@ const Home = () => (
   <div>
     <h2>Home</h2>
     <p>Welcome to ようこそ ジャパリパーク</p>
-  </div>
-);
-const UserNew = () => (
-  <div>
-    <h2>About</h2>
-    <p>フレンズに投票するページです</p>
-  </div>
-);
-const SessionsNew = () => (
-  <div>
-    <h2>Friends</h2>
-    <p>ここにフレンズのリストを書きます</p>
   </div>
 );
 
