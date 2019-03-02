@@ -5,7 +5,7 @@ export class UserNew extends React.Component {
     super(props);
     this.state = {
       data: {
-        email: '',
+        userId: '',
         password: '',
         passwordConfirmation: '',
       },
@@ -17,8 +17,8 @@ export class UserNew extends React.Component {
   handleChange(event) {
     const data = this.state.data;
     switch (event.target.name) {
-      case 'email':
-        data.email = event.target.value;
+      case 'userId':
+        data.userId = event.target.value;
         break;
       case 'password':
         data.password = event.target.value;
@@ -42,14 +42,13 @@ export class UserNew extends React.Component {
         <h2>新規登録</h2>
         <form onSubmit={this.handleSubmit}>
           <div className="form-group">
-            <label>メールアドレス</label>
+            <label>ユーザーID</label>
             <input
-              type="email"
-              name="email"
+              type="text"
+              name="userId"
               className="form-control"
-              aria-describedby="emailHelp"
               onChange={this.handleChange}
-              placeholder="Enter email"
+              placeholder="Enter id"
             />
           </div>
 
