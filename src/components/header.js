@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React from 'react';
 import {Link} from 'react-router-dom';
 
 export const Header = () => (
@@ -15,11 +15,11 @@ export const Header = () => (
         aria-controls="navbarNav"
         aria-expanded="false"
         aria-label="Toggle navigation">
-        <i class="fas fa-bars" />
+        <i className="fas fa-bars" />
       </button>
       <div className="collapse navbar-collapse" id="navbarNav">
         <ul className="navbar-nav">
-          <li className="nav-item active">
+          <li className="nav-item">
             <Link className="nav-link" to="/users/new">
               新規登録
             </Link>
