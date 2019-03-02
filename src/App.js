@@ -5,7 +5,7 @@ import {UserNew} from './pages/user_new';
 import {SessionsNew} from './pages/sessions_new';
 
 const App = () => (
-  <div className="container bg-light">
+  <div className="container-fluid bg-light">
     <BrowserRouter>
       <div>
         <Header />
