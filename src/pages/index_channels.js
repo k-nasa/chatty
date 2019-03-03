@@ -1,5 +1,6 @@
 import React from 'react';
 import axios from 'axios';
+import {Link} from 'react-router-dom';
 import {BASE_URL} from '../consts';
 import {getToken} from '../service';
 
@@ -76,6 +77,9 @@ export class Channels extends React.Component {
     return (
       <div>
         <h2>チャンネル一覧</h2>
+        <Link to="/add_channel">
+          <button className="btn btn-info">チャンネル追加</button>
+        </Link>
         {this.state.alertMessage && (
           <div className="alert alert-danger" role="alert">
             {this.state.alertMessage}

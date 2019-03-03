@@ -6,6 +6,7 @@ import {SessionsNew} from './pages/sessions_new';
 import {getToken} from './service';
 import {Channels} from './pages/index_channels';
 import {Messages} from './pages/show_channel';
+import {AddChannel} from './pages/add_channel';
 
 const App = () => (
   <div className="container-fluid bg-light">
@@ -18,6 +19,7 @@ const App = () => (
         <PrivateRoute path="/channel/:id" component={Messages} />
         <PrivateRoute path="/channels" component={Channels} />
         <PrivateRoute path="/profile" component={Home} />
+        <PrivateRoute path="/add_channel" component={AddChannel} />
       </div>
     </BrowserRouter>
   </div>

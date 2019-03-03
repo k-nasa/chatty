@@ -32,6 +32,26 @@ export class Messages extends React.Component {
 
   handleSubmit(event) {
     event.preventDefault();
+    const request = axios.create({
+      baseURL: BASE_URL,
+    });
+
+    request
+      .post('/api/messages', {
+        params: {token: getToken(), content: this.state.input_message},
+      })
+      .then(function(response) {
+        if (response.data.message) {
+          const messages = this.state.messages;
+          messages.push(response.data.message);
+          this.setState({message: messages});
+        } else {
+          this.setState({alertMessage: response.data.messages});
+        }
+      })
+      .catch(error => {
+        this.setState({alertMessage: error.message});
+      });
   }
 
   getAllMessages() {
