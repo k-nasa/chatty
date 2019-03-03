@@ -1,6 +1,7 @@
 import React from 'react';
 import axios from 'axios';
 import {login} from '../service';
+import {BASE_URL} from '../consts';
 
 export class UserNew extends React.Component {
   constructor(props) {
@@ -37,7 +38,7 @@ export class UserNew extends React.Component {
   userRegister() {
     // あとで共通化する
     const request = axios.create({
-      baseURL: 'http://localhost:8000',
+      baseURL: BASE_URL,
     });
 
     request
