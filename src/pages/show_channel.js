@@ -98,18 +98,6 @@ export class Messages extends React.Component {
         content: 'ぼえーーーーーーーー',
         created_at: '88',
       },
-      {
-        id: 4,
-        author: 'hgoehoge',
-        content: 'ぼえーーーーーーーー',
-        created_at: '88',
-      },
-      {
-        id: 5,
-        author: 'hgoehoge',
-        content: 'ぼえーーーーーーーー',
-        created_at: '88',
-      },
     ];
   }
 
