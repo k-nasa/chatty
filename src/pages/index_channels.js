@@ -45,6 +45,7 @@ export class Channels extends React.Component {
       })
       .catch(error => {
         this.setState({alertMessage: error.message});
+        // TODO delete
         this.setState({channels: this.dummyChannels()});
       });
   }
