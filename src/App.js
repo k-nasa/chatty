@@ -1,8 +1,9 @@
 import React from 'react';
-import {BrowserRouter, Route} from 'react-router-dom';
+import {BrowserRouter, Route, Redirect} from 'react-router-dom';
 import {Header} from './components/header';
 import {UserNew} from './pages/user_new';
 import {SessionsNew} from './pages/sessions_new';
+import {getToken} from './service';
 
 const App = () => (
   <div className="container-fluid bg-light">
@@ -12,6 +13,9 @@ const App = () => (
         <Route exact path="/" component={Home} />
         <Route path="/users/new" component={UserNew} />
         <Route path="/sessions/new" component={SessionsNew} />
+        <PrivateRoute path="/channel/:id" component={Home} />
+        <PrivateRoute path="/channels" component={Home} />
+        <PrivateRoute path="/profile" component={Home} />
       </div>
     </BrowserRouter>
   </div>
@@ -23,5 +27,27 @@ const Home = () => (
     <p>Welcome to ようこそ ジャパリパーク</p>
   </div>
 );
+
+const PrivateRoute = ({component: Component, ...rest}) => {
+  const loggedIn = () => (getToken() ? true : false);
+
+  return (
+    <Route
+      {...rest}
+      render={props =>
+        loggedIn() === false ? (
+          <Component {...props} />
+        ) : (
+          <Redirect
+            to={{
+              pathname: '/sessions/new',
+              state: {from: props.location},
+            }}
+          />
+        )
+      }
+    />
+  );
+};
 
 export default App;
