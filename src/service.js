@@ -5,3 +5,11 @@ export function getToken() {
 export function login(token) {
   return window.sessionStorage.setItem('token', token);
 }
+
+export function sleep(time) {
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      resolve();
+    }, time);
+  });
+}

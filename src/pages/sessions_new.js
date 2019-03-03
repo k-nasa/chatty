@@ -1,6 +1,7 @@
 import React from 'react';
 import axios from 'axios';
 import {login} from '../service';
+import {BASE_URL} from '../consts';
 
 export class SessionsNew extends React.Component {
   constructor(props) {
