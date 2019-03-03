@@ -1,4 +1,6 @@
 import React from 'react';
+import axios from 'axios';
+import {login} from '../service';
 
 export class UserNew extends React.Component {
   constructor(props) {
@@ -32,7 +34,35 @@ export class UserNew extends React.Component {
     this.setState({data: data});
   }
 
+  userRegister() {
+    // あとで共通化する
+    const request = axios.create({
+      baseURL: 'http://localhost:8000',
+    });
+
+    request
+      .post('/api/users', {
+        params: {
+          email: this.email,
+          password: this.password,
+          passwordConfirmation: this.passwordConfirmation,
+        },
+      })
+      .then(function(response) {
+        if (response.data.token) {
+          login(response.data.token);
+          window.location.href = '/channels';
+        } else {
+          this.setState({alertMessage: response.data.messages});
+        }
+      })
+      .catch(error => {
+        this.setState({alertMessage: error.message});
+      });
+  }
+
   handleSubmit(event) {
+    this.userRegister();
     event.preventDefault();
   }
 
@@ -40,6 +70,12 @@ export class UserNew extends React.Component {
     return (
       <div>
         <h2>新規登録</h2>
+
+        {this.state.alertMessage && (
+          <div className="alert alert-danger" role="alert">
+            {this.state.alertMessage}
+          </div>
+        )}
         <form onSubmit={this.handleSubmit}>
           <div className="form-group">
             <label>ユーザーID</label>
