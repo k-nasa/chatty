@@ -5,6 +5,7 @@ import {UserNew} from './pages/user_new';
 import {SessionsNew} from './pages/sessions_new';
 import {getToken} from './service';
 import {Channels} from './pages/index_channels';
+import {Messages} from './pages/show_channel';
 
 const App = () => (
   <div className="container-fluid bg-light">
@@ -14,7 +15,7 @@ const App = () => (
         <Route exact path="/" component={Home} />
         <Route path="/users/new" component={UserNew} />
         <Route path="/sessions/new" component={SessionsNew} />
-        <PrivateRoute path="/channel/:id" component={Home} />
+        <PrivateRoute path="/channel/:id" component={Messages} />
         <PrivateRoute path="/channels" component={Channels} />
         <PrivateRoute path="/profile" component={Home} />
       </div>
