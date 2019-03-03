@@ -4,6 +4,7 @@ import {Header} from './components/header';
 import {UserNew} from './pages/user_new';
 import {SessionsNew} from './pages/sessions_new';
 import {getToken} from './service';
+import {Channels} from './pages/index_channels';
 
 const App = () => (
   <div className="container-fluid bg-light">
@@ -14,7 +15,7 @@ const App = () => (
         <Route path="/users/new" component={UserNew} />
         <Route path="/sessions/new" component={SessionsNew} />
         <PrivateRoute path="/channel/:id" component={Home} />
-        <PrivateRoute path="/channels" component={Home} />
+        <PrivateRoute path="/channels" component={Channels} />
         <PrivateRoute path="/profile" component={Home} />
       </div>
     </BrowserRouter>
